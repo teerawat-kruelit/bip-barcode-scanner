@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
+
+    <TextView
+        android:id="@+id/txtResultScan1"
+        android:layout_width="175dp"
+        android:layout_height="25dp"
+        android:layout_marginTop="86dp"
+        android:text="ResultScan1"
+        android:textColor="#558B2F"
+        android:textSize="18sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/txtResultScan2"
+        android:layout_width="175dp"
+        android:layout_height="25dp"
+        android:layout_marginTop="8dp"
+        android:text="ResultScan2"
+        android:textColor="#558B2F"
+        android:textSize="18sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/txtResultScan1" />
+
+    <TextView
+        android:id="@+id/txtResultExecute"
+        android:layout_width="175dp"
+        android:layout_height="25dp"
+        android:layout_marginTop="8dp"
+        android:text="ResultExecute"
+        android:textColor="#558B2F"
+        android:textSize="18sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/txtResultScan2" />
+
+    <Button
+        android:id="@+id/btnScan1"
+        android:layout_width="200dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="16dp"
+        android:clickable="true"
+        android:insetTop="0dp"
+        android:insetBottom="0dp"
+        android:text="Scan_1"
+        android:textAppearance="@style/TextAppearance.AppCompat.Large"
+        app:backgroundTint="#888888"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/txtResultExecute"
+         />
+
+    <Button
+        android:id="@+id/btnScan2"
+        android:layout_width="200dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="8dp"
+        android:clickable="true"
+        android:focusable="true"
+        android:insetTop="0dp"
+        android:insetBottom="0dp"
+        android:text="Scan_2"
+        android:textAppearance="@style/TextAppearance.AppCompat.Large"
+        app:backgroundTint="#888888"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btnScan1"
+        />
+
+    <Button
+        android:id="@+id/btnExecute"
+        android:layout_width="200dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="32dp"
+        android:clickable="true"
+        android:insetTop="0dp"
+        android:insetBottom="0dp"
+        android:text="Execute"
+        android:textAppearance="@style/TextAppearance.AppCompat.Large"
+        app:backgroundTint="#888888"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btnScan2" />
+
+    <Button
+        android:id="@+id/btnReset"
+        android:layout_width="200dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="8dp"
+        android:clickable="true"
+        android:insetTop="0dp"
+        android:insetBottom="0dp"
+        android:text="Reset"
+        android:textAppearance="@style/TextAppearance.AppCompat.Large"
+        app:backgroundTint="#888888"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btnExecute" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
