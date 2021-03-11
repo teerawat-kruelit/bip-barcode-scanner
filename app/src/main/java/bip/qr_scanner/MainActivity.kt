@@ -77,6 +77,7 @@ class MainActivity : AppCompatActivity() {
             if (result != null) {
                 if (result.contents == null) {
                     currScan = 0;
+                    
                     Toast.makeText(this, "Result is null", Toast.LENGTH_SHORT).show();
                 } else {
                     if(currScan == 1){
