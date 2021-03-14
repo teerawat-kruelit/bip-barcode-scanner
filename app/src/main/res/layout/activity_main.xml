@@ -7,94 +7,59 @@
     tools:context=".MainActivity">
 
     <TextView
-        android:id="@+id/txtResultScan1"
-        android:layout_width="175dp"
-        android:layout_height="25dp"
-        android:layout_marginTop="86dp"
-        android:text="ResultScan1"
-        android:textColor="#558B2F"
-        android:textSize="18sp"
+        android:id="@+id/txtExecute"
+        android:layout_width="211dp"
+        android:layout_height="146dp"
+        android:layout_marginTop="112dp"
+        android:background="#E3E3E3"
+        android:gravity="center"
+        android:text="Scan"
+        android:textColor="#000000"
+        android:textSize="36sp"
+        android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <TextView
-        android:id="@+id/txtResultScan2"
-        android:layout_width="175dp"
-        android:layout_height="25dp"
-        android:layout_marginTop="8dp"
-        android:text="ResultScan2"
-        android:textColor="#558B2F"
-        android:textSize="18sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/txtResultScan1" />
-
-    <TextView
-        android:id="@+id/txtResultExecute"
-        android:layout_width="175dp"
-        android:layout_height="25dp"
-        android:layout_marginTop="8dp"
-        android:text="ResultExecute"
-        android:textColor="#558B2F"
-        android:textSize="18sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/txtResultScan2" />
-
     <Button
-        android:id="@+id/btnScan1"
-        android:layout_width="200dp"
+        android:id="@+id/btnScanTray"
+        android:layout_width="150dp"
         android:layout_height="50dp"
-        android:layout_marginTop="16dp"
-        android:clickable="true"
-        android:insetTop="0dp"
-        android:insetBottom="0dp"
-        android:text="Scan_1"
-        android:textAppearance="@style/TextAppearance.AppCompat.Large"
-        app:backgroundTint="#888888"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/txtResultExecute"
-         />
-
-    <Button
-        android:id="@+id/btnScan2"
-        android:layout_width="200dp"
-        android:layout_height="50dp"
-        android:layout_marginTop="8dp"
+        android:layout_marginTop="31dp"
         android:clickable="true"
         android:focusable="true"
         android:insetTop="0dp"
         android:insetBottom="0dp"
-        android:text="Scan_2"
+        android:text="Tray"
         android:textAppearance="@style/TextAppearance.AppCompat.Large"
         app:backgroundTint="#888888"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/btnScan1"
-        />
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/btnScanSlot"
+        app:layout_constraintTop_toBottomOf="@+id/txtScanSlot" />
 
     <Button
         android:id="@+id/btnExecute"
-        android:layout_width="200dp"
+        android:layout_width="150dp"
         android:layout_height="50dp"
-        android:layout_marginTop="32dp"
+        android:layout_marginTop="18dp"
         android:clickable="true"
         android:insetTop="0dp"
         android:insetBottom="0dp"
         android:text="Execute"
         android:textAppearance="@style/TextAppearance.AppCompat.Large"
         app:backgroundTint="#888888"
-        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/btnReset"
+        app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/btnScan2" />
+        app:layout_constraintTop_toBottomOf="@+id/btnScanSlot" />
 
     <Button
         android:id="@+id/btnReset"
-        android:layout_width="200dp"
+        android:layout_width="150dp"
         android:layout_height="50dp"
-        android:layout_marginTop="8dp"
+        android:layout_marginTop="18dp"
         android:clickable="true"
         android:insetTop="0dp"
         android:insetBottom="0dp"
@@ -102,7 +67,39 @@
         android:textAppearance="@style/TextAppearance.AppCompat.Large"
         app:backgroundTint="#888888"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/btnExecute"
+        app:layout_constraintTop_toBottomOf="@+id/btnScanTray" />
+
+    <TextView
+        android:id="@+id/txtScanSlot"
+        android:layout_width="175dp"
+        android:layout_height="35dp"
+        android:layout_marginTop="31dp"
+        android:background="#E3E3E3"
+        android:gravity="center"
+        android:text="-"
+        android:textColor="#000000"
+        android:textSize="18sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/btnExecute" />
+        app:layout_constraintTop_toBottomOf="@+id/txtExecute" />
+
+    <Button
+        android:id="@+id/btnScanSlot"
+        android:layout_width="150dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="31dp"
+        android:clickable="true"
+        android:insetTop="0dp"
+        android:insetBottom="0dp"
+        android:text="Slot"
+        android:textAppearance="@style/TextAppearance.AppCompat.Large"
+        app:backgroundTint="#888888"
+        app:layout_constraintEnd_toStartOf="@+id/btnScanTray"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/txtScanSlot" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
