@@ -33,19 +33,19 @@ class MainActivity : AppCompatActivity() {
         btnScanSlot.setOnClickListener{
             scanner.initiateScan();
             currScan = 1
-            Toast.makeText(this, "Scanning Slot", Toast.LENGTH_LONG).show()
+            Toast.makeText(this, "Scanning Slot", Toast.LENGTH_SHORT).show()
         }
 
         btnScanTray.setOnClickListener{
             scanner.initiateScan();
             currScan = 2;
-            Toast.makeText(this, "Scanning Tray", Toast.LENGTH_LONG).show()
+            Toast.makeText(this, "Scanning Tray", Toast.LENGTH_SHORT).show()
         }
 
         btnExecute.setOnClickListener{
             currScan = 0;
             if(resultScanSlot.equals("") || resultScanTray.equals("")){
-                Toast.makeText(this, "Some value is null", Toast.LENGTH_LONG).show();
+                Toast.makeText(this, "Some value is null", Toast.LENGTH_SHORT).show();
             }else{
                 if(resultScanSlot.equals(resultScanTray)){
                     txtExecute.setText("Unlock");
