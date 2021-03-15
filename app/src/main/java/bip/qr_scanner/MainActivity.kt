@@ -49,10 +49,10 @@ class MainActivity : AppCompatActivity() {
             }else{
                 if(resultScanSlot.equals(resultScanTray)){
                     txtExecute.setText("Unlock");
-                    txtExecute.setTextColor(Color.RED)
+                    txtExecute.setTextColor(Color.GREEN)
                 }else{
                     txtExecute.setText("Error");
-                    txtExecute.setTextColor(Color.GREEN)
+                    txtExecute.setTextColor(Color.RED)
                 }
             }
         }
