@@ -4,17 +4,28 @@ import android.app.Activity
 import android.content.Intent
 import android.graphics.Color
 import android.os.Bundle
+import android.renderscript.ScriptIntrinsicResize
 import android.widget.Button
 import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import com.google.gson.Gson
+import com.google.gson.GsonBuilder
 import com.google.zxing.integration.android.IntentIntegrator
+import okhttp3.*
+import java.io.IOException
+import okhttp3.OkHttpClient
+
+
+
 
 
 class MainActivity : AppCompatActivity() {
     var currScan: Int = 0
     var resultScanSlot: String = "";
     var resultScanTray: String = "";
+    var clientOK = OkHttpClient();
+    var gsonPretty = GsonBuilder().setPrettyPrinting().create();
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -43,13 +54,34 @@ class MainActivity : AppCompatActivity() {
         }
 
         btnExecute.setOnClickListener{
+            var mapResult: Map<String, Any> = HashMap()
+            var bodyMap: Map<String, Any> = mapOf(
+                    "slot_id" to "$resultScanSlot",
+                    "slot_lock_status" to 1
+            )
+            var json : String = gsonPretty.toJson(bodyMap)
+            var body = RequestBody.create(MediaType.parse("application/json; charset=utf-8"), json)
+            var url = "http://172.29.60.56/pharmacy/pharmacy/unlock"; //SET URL HERE
+            var request = Request.Builder().method("POST", body).url(url).build();
+
             currScan = 0;
             if(resultScanSlot.equals("") || resultScanTray.equals("")){
                 Toast.makeText(this, "Some value is null", Toast.LENGTH_SHORT).show();
             }else{
                 if(resultScanSlot.equals(resultScanTray)){
-                    txtExecute.setText("Unlock");
-                    txtExecute.setTextColor(Color.GREEN)
+                    clientOK.newCall(request).enqueue(object : Callback {
+                        override fun onFailure(call: Call, e: IOException) {
+                            txtExecute.setText("Error");
+                            txtExecute.setTextColor(Color.RED)
+                            println(e.printStackTrace())
+                        }
+                        override fun onResponse(call: Call, response: Response) {
+                            var respJson = response.body().string();
+                            mapResult = Gson().fromJson(respJson, mapResult.javaClass)
+                            txtExecute.setText("Unlock");
+                            txtExecute.setTextColor(Color.GREEN)
+                        }
+                    })
                 }else{
                     txtExecute.setText("Error");
                     txtExecute.setTextColor(Color.RED)
