@@ -77,14 +77,19 @@ class MainActivity : AppCompatActivity() {
                         }
                         override fun onResponse(call: Call, response: Response) {
                             var respJson = response.body().string();
-                            mapResult = Gson().fromJson(respJson, mapResult.javaClass)
-                            txtExecute.setText("Unlock");
-                            txtExecute.setTextColor(Color.GREEN)
+                            mapResult = Gson().fromJson(respJson, mapResult.javaClass);
+                            if(mapResult.get("status") == true){
+                                txtExecute.setText("Unlock");
+                                txtExecute.setTextColor(Color.GREEN);
+                            }else{
+                                txtExecute.setText("Error");
+                                txtExecute.setTextColor(Color.RED);
+                            }
                         }
                     })
                 }else{
                     txtExecute.setText("Error");
-                    txtExecute.setTextColor(Color.RED)
+                    txtExecute.setTextColor(Color.RED);
                 }
             }
         }
