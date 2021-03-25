@@ -61,6 +61,7 @@ class MainActivity : AppCompatActivity() {
             )
             var json : String = gsonPretty.toJson(bodyMap)
             var body = RequestBody.create(MediaType.parse("application/json; charset=utf-8"), json)
+            //var url = "http://192.168.43.4:8080/api/pharmacy/pharmacy/unlock"; //SET URL HERE
             var url = "http://172.29.60.56/pharmacy/pharmacy/unlock"; //SET URL HERE
             var request = Request.Builder().method("POST", body).url(url).build();
 
@@ -71,24 +72,25 @@ class MainActivity : AppCompatActivity() {
                 if(resultScanSlot.equals(resultScanTray)){
                     clientOK.newCall(request).enqueue(object : Callback {
                         override fun onFailure(call: Call, e: IOException) {
-                            txtExecute.setText("Error");
-                            txtExecute.setTextColor(Color.RED)
+                            txtExecute.setText("Error API");
+                            txtExecute.setTextColor(Color.RED);
                             println(e.printStackTrace())
                         }
                         override fun onResponse(call: Call, response: Response) {
                             var respJson = response.body().string();
                             mapResult = Gson().fromJson(respJson, mapResult.javaClass);
+
                             if(mapResult.get("status") == true){
                                 txtExecute.setText("Unlock");
                                 txtExecute.setTextColor(Color.GREEN);
                             }else{
-                                txtExecute.setText("Error");
-                                txtExecute.setTextColor(Color.RED);
+                                txtExecute.setText("Waiting");
+                                txtExecute.setTextColor(Color.YELLOW);
                             }
                         }
                     })
                 }else{
-                    txtExecute.setText("Error");
+                    txtExecute.setText("Un Match");
                     txtExecute.setTextColor(Color.RED);
                 }
             }
